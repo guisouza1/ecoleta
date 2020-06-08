@@ -8,13 +8,14 @@
 
 {% block styles %}
     <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
 {% endblock styles %}
 
 {% block content %}
 
     {% include "partials/page-header.html" %}
 
-    <form action="">
+    <form action="/savepoint" method="POST">
 
         <h1>Cadastro do ponto de coleta</h1>
 
@@ -71,32 +72,32 @@
             </legend>
 
             <div class="items-grid">
-                <li data-id="1">
+                <li data-id="Lâmpadas">
                     <img src="/assets/lampadas.svg" alt="Lâmpadas">
                     <span>Lâmpadas</span>
                 </li>
 
-                <li data-id="2">
+                <li data-id="Pilhas e baterias">
                     <img src="/assets/baterias.svg" alt="Pilhas e baterias">
                     <span>Pilhas e baterias</span>
                 </li>
 
-                <li data-id="3">
+                <li data-id="Papeis e papelão">
                     <img src="/assets/papeis-papelao.svg" alt="Papeis e papelão">
                     <span>Papeis e papelão</span>
                 </li>
 
-                <li data-id="4">
+                <li data-id="Resíduos eletronicos">
                     <img src="/assets/eletronicos.svg" alt="Resíduos eletronicos">
                     <span>Resíduos eletronicos</span>
                 </li>
 
-                <li data-id="5">
+                <li data-id="Resíduos organicos">
                     <img src="/assets/organicos.svg" alt="Resíduos organicos">
                     <span>Resíduos organicos</span>
                 </li>
 
-                <li data-id="6">
+                <li data-id="Óleo de cozinha">
                     <img src="/assets/oleo.svg" alt="Óleo de cozinha">
                     <span>Óleo de cozinha</span>
                 </li>
@@ -110,6 +111,15 @@
         <button type="submit">Cadastrar ponto de coleta</button>
 
     </form>
+
+
+    {% if saved %}
+
+        {%include "partials/point-created.html"%}
+    {% endif %}
+
+    
+
 {% endblock content %}
 
 {% block scripts %}
